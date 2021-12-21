@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalAppointments", "MedicalAppointments.csproj", "{D6BA2F5F-D258-48E2-9F31-83C35B99274C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalAppointments", "MedicalAppointments.csproj", "{34C25853-8E2A-4CAE-9B30-6E2FB005143A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6BA2F5F-D258-48E2-9F31-83C35B99274C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6BA2F5F-D258-48E2-9F31-83C35B99274C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6BA2F5F-D258-48E2-9F31-83C35B99274C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6BA2F5F-D258-48E2-9F31-83C35B99274C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C25853-8E2A-4CAE-9B30-6E2FB005143A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C25853-8E2A-4CAE-9B30-6E2FB005143A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C25853-8E2A-4CAE-9B30-6E2FB005143A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C25853-8E2A-4CAE-9B30-6E2FB005143A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A09BC186-FA98-46B9-9783-760AE45BD494}
+		SolutionGuid = {E4750F1E-804E-4CB0-98F1-7F8E31FD2A4C}
 	EndGlobalSection
 EndGlobal
