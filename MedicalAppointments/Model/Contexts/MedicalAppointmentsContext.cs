@@ -29,9 +29,9 @@ namespace MedicalAppointments.Model.Contexts
                 entity.HasKey(user => user.Id);
                 entity.Property(user => user.Id).HasColumnName("ID");
                 entity.Property(user => user.Name).HasColumnName("NAME");
-                entity.Property(user => user.Description).HasColumnName("DESCRIPTION");
                 entity.Property(user => user.Email).HasColumnName("EMAIL");
                 entity.Property(user => user.Password).HasColumnName("PASSWORD");
+                entity.Property(user => user.Telephone).HasColumnName("TELEPHONE");
 
             });
 
