@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MedicalAppointments.Model.Contexts;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MedicalAppointments.Model.Repositories
 {
-   /* public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbSet<T> _entities;
 
@@ -52,5 +54,5 @@ namespace MedicalAppointments.Model.Repositories
             return query ?? _entities;
         }
 
-    }*/
+    }
 }

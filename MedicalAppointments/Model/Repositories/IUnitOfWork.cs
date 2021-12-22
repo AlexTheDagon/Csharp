@@ -12,7 +12,7 @@ namespace MedicalAppointments.Model.Repositories
         public IRepository<Pacient> PacientRepository { get; }
         public IRepository<Doctor> DoctorRepository { get; }
 
-        public IRepository<Appointment> Appointment { get; }
+        public IRepository<Appointment> AppointmentRepository { get; }
 
         public void Save();
     }

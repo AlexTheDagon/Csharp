@@ -32,6 +32,36 @@ namespace MedicalAppointments.Model.Contexts
                 entity.Property(user => user.Email).HasColumnName("EMAIL");
                 entity.Property(user => user.Password).HasColumnName("PASSWORD");
                 entity.Property(user => user.Telephone).HasColumnName("TELEPHONE");
+            });
+
+            modelBuilder.Entity<Pacient>(entity =>
+            {
+                entity.ToTable("PACIENTS");
+                entity.HasKey(pacient => pacient.Id);
+                entity.Property(pacient => pacient.Id).HasColumnName("REMARKS");
+                entity.Property(pacient => pacient.Age).HasColumnName("AGE");
+            });
+
+            modelBuilder.Entity<Doctor>(entity =>
+            {
+                entity.ToTable("DOCTORS");
+                entity.HasKey(doctor => doctor.Id);
+                entity.Property(doctor => doctor.Id).HasColumnName("TYPE");
+                entity.Property(doctor => doctor.Rating).HasColumnName("RATING");
+            });
+
+            modelBuilder.Entity<Appointment>(entity =>
+            {
+                entity.ToTable("APPOINTMENTS");
+                entity.HasKey(appointment => appointment.Id);
+                entity.Property(appointment => appointment.Id).HasColumnName("ID");
+                entity.Property(appointment => appointment.Type).HasColumnName("TYPE");
+                entity.Property(appointment => appointment.Date).HasColumnName("DATE");
+                entity.Property(appointment => appointment.Pacient).HasColumnName("PACIENT");
+                entity.Property(appointment => appointment.Doctor).HasColumnName("DOCTOR");
+                entity.HasOne(appointment => appointment.Pacient).WithMany(pacient => pacient.Appointments);
+                entity.HasOne(appointment => appointment.Doctor).WithMany(pacient => pacient.Appointments);
+
 
             });
 
