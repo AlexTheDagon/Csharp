@@ -36,3 +36,6 @@ D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.pdb
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.genruntimeconfig.cache
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.csproj.CopyComplete
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Appointment.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Doctor.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
