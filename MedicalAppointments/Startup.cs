@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MedicalAppointments.Data;
 
 namespace MedicalAppointments
 {
@@ -24,6 +26,9 @@ namespace MedicalAppointments
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MedicalAppointmentsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MedicalAppointmentsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
