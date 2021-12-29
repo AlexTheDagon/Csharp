@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MedicalAppointments.Models
 {
-    public class User
+    public class Pacient
     {
         public int Id { get; set; }
         public string Mail { get; set; }

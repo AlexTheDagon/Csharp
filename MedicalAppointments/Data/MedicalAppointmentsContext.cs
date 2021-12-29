@@ -15,5 +15,7 @@ namespace MedicalAppointments.Data
         }
 
         public DbSet<MedicalAppointments.Models.User> User { get; set; }
+
+        public DbSet<MedicalAppointments.Models.Pacient> Pacient { get; set; }
     }
 }

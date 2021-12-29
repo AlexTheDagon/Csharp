@@ -151,8 +151,8 @@ D:\GitHub\Csharp\MedicalAppointments\bin\Debug\netcoreapp3.1\Microsoft.Bcl.Async
 D:\GitHub\Csharp\MedicalAppointments\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\GitHub\Csharp\MedicalAppointments\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
 D:\GitHub\Csharp\MedicalAppointments\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Users\Create.cshtml.g.cs
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Users\Delete.cshtml.g.cs
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Users\Details.cshtml.g.cs
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Users\Edit.cshtml.g.cs
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Create.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Delete.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Details.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Edit.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Index.cshtml.g.cs

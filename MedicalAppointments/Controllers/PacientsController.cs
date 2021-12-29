@@ -10,22 +10,22 @@ using MedicalAppointments.Models;
 
 namespace MedicalAppointments.Controllers
 {
-    public class UsersController : Controller
+    public class PacientsController : Controller
     {
         private readonly MedicalAppointmentsContext _context;
 
-        public UsersController(MedicalAppointmentsContext context)
+        public PacientsController(MedicalAppointmentsContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Pacients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.User.ToListAsync());
+            return View(await _context.Pacient.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Pacients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace MedicalAppointments.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var pacient = await _context.Pacient
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (pacient == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(pacient);
         }
 
-        // GET: Users/Create
+        // GET: Pacients/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Pacients/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Mail,Password,Name,Phone")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Mail,Password,Name,Phone,Age,Observation")] Pacient pacient)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(pacient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(pacient);
         }
 
-        // GET: Users/Edit/5
+        // GET: Pacients/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace MedicalAppointments.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            var pacient = await _context.Pacient.FindAsync(id);
+            if (pacient == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(pacient);
         }
 
-        // POST: Users/Edit/5
+        // POST: Pacients/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Mail,Password,Name,Phone")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Mail,Password,Name,Phone,Age,Observation")] Pacient pacient)
         {
-            if (id != user.Id)
+            if (id != pacient.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace MedicalAppointments.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(pacient);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!PacientExists(pacient.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace MedicalAppointments.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(pacient);
         }
 
-        // GET: Users/Delete/5
+        // GET: Pacients/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace MedicalAppointments.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var pacient = await _context.Pacient
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (pacient == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(pacient);
         }
 
-        // POST: Users/Delete/5
+        // POST: Pacients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
+            var pacient = await _context.Pacient.FindAsync(id);
+            _context.Pacient.Remove(pacient);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool PacientExists(int id)
         {
-            return _context.User.Any(e => e.Id == id);
+            return _context.Pacient.Any(e => e.Id == id);
         }
     }
 }
