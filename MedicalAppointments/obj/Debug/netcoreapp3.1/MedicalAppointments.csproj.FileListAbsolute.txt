@@ -36,7 +36,6 @@ D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.pdb
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.genruntimeconfig.cache
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.csproj.CopyComplete
-D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Appointment.cshtml.g.cs
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Doctor.cshtml.g.cs
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
 D:\GitHub\Csharp\MedicalAppointments\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -156,3 +155,13 @@ D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacient
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Details.cshtml.g.cs
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Edit.cshtml.g.cs
 D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Pacients\Index.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Create.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Delete.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Details.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Edit.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Index.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Create.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Delete.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Details.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Edit.cshtml.g.cs
+D:\GitHub\Csharp\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs
