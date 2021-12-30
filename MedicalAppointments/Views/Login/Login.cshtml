@@ -1,7 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Login Page";
 }
-
+@if (!User.Identity.IsAuthenticated)
+{
+<div class="col-md-6 offset-3 alert alert-danger text-center">
+    <h7>Please login into your account in order to make an appointment</h7>
+</div>
+}
 <div class="border-top border-bottom text-muted  text-center">
     <h1 class="display-4">Login into the account</h1>
 </div>
