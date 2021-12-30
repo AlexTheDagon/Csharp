@@ -148,7 +148,33 @@ namespace MedicalAppointments.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult>Filter(string searchString)
+        {
+            
+            var allDoctors = await _context.Doctor.ToListAsync();
 
+            if (!string.IsNullOrEmpty(searchString))
+            {
+
+                try
+                {
+                    var filteredResult = allDoctors.Where(n => (n.Name.ToLower().Contains(searchString.ToLower())) ||
+                                                                     (n.Rating >= Convert.ToDouble(searchString)) ||
+                                                                     string.Equals(n.Type.ToLower(), searchString.ToLower(), StringComparison.CurrentCultureIgnoreCase)).ToList();
+                    return View("Doctors", filteredResult);
+                }
+                catch (FormatException)
+                {
+
+                    var filteredResult = allDoctors.Where(n => (n.Name.ToLower().Contains(searchString.ToLower())) ||
+                                                                     string.Equals(n.Type.ToLower(), searchString.ToLower(), StringComparison.CurrentCultureIgnoreCase)).ToList();
+                    return View("Doctors", filteredResult);
+
+                }
+            }
+
+            return View("Doctors", allDoctors);
+        }
         private bool DoctorExists(int id)
         {
             return _context.Doctor.Any(e => e.Id == id);
