@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Observation)
             </td>
             <td>
-                <a style="color: #004d4d" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a style="color: #004d4d" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a style="color: #004d4d" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit</a> |
+                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Details</a> |
+                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
             </td>
         </tr>
 }

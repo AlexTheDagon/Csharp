@@ -13,9 +13,19 @@
     <p></p>
 </div>
 <div class="text-center">
-    <button name="makeAppointmentButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Create", "Appointments")'">
-        Create appointment
-    </button>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <button name="makeAppointmentButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Create", "Appointments")'">
+            Create appointment
+        </button>
+    }
+    else
+    {
+        <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Login", "Login")'">
+            Create appointment
+        </button>
+    }
+
     <button name="seeDcotorsButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Doctors", "Doctors")'">
         See doctors
     </button>
