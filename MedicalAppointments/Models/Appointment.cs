@@ -8,11 +8,28 @@ namespace MedicalAppointments.Models
 {
     public class Appointment
     {
+        [Required]
         public int Id { get; set; }
+
+        [Required]
+        public int DoctorID { get; set; }
+
+        [Required]
         public Doctor Doctor { get; set; }
-        public User User { get; set; }
+
+        [Required]
+        public int PacientID { get; set; }
+
+        [Required]
+        public Pacient Pacient { get; set; }
+
+        [Required]
         public DateTime DateAndTime { get; set; }
+
+        [Required]
         public String Type { get; set; }
+
+        [Required]
         public string Observations { get; set; }
 
     }

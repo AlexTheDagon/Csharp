@@ -7,74 +7,72 @@ using Microsoft.AspNetCore.Identity;
 using MedicalAppointments.Data;
 using Microsoft.EntityFrameworkCore;
 using MedicalAppointments.Data.ViewModels;
+using MedicalAppointments.Data.Services;
+using System;
+using System.Linq;
+
+using BC = BCrypt.Net.BCrypt;
 
 namespace MedicalAppointments.Controllers
 {
     public class LoginController: Controller
     {
-        /*rivate readonly ILogger<LoginController> _logger;
-
-         public LoginController(ILogger<LoginController> logger)
-         {
-             _logger = logger;
-         }
-         public IActionResult Login()
-         {
-             return View();
-         }
-
-         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-         public IActionResult Error()
-         {
-             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-         }*/
-
-
-
-        private readonly UserManager<User> _userManager;
-
-        private readonly SignInManager<User> _signInManager;
-
         private readonly MedicalAppointmentsContext _context;
 
-        public LoginController(UserManager<User> userManager, SignInManager<User> signInManager, MedicalAppointmentsContext context)
+
+        //private SecurityService _securityService;
+
+
+        public LoginController(MedicalAppointmentsContext context/*, SecurityService securityService*/)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
             _context = context;
+           // _securityService = new SecurityService();
+
         }
 
-        public async Task<IActionResult> Users()
+        public async Task<IActionResult> Pacients()
         {
-            var users = await _context.User.ToListAsync();
+            var users = await _context.Pacient.ToListAsync();
             return View(users);
         }
 
-        public IActionResult Login() => View(new LoginVM());
+        public IActionResult Login() => View();
+
+
+        public string HashPassword(string password)
+        {
+            return BC.HashPassword(password);
+        }
+        public bool VerifyPassword(string password, string passwordHash)
+        {
+            return BC.Verify(password, passwordHash);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        public async Task<IActionResult> LoginUser(string email, string password)
         {
-            if (!ModelState.IsValid) return View(loginVM);
+        
+            var users = await _context.Pacient.ToListAsync();
 
-            var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-            if (user != null)
+            if(!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-                var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
-                if (passwordCheck)
-                {
-                    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                TempData["Error"] = "Wrong credentials. Please, try again!";
-                return View(loginVM);
-            }
+                 var pacient = users.FirstOrDefault(user => user.Mail == email);
 
-            TempData["Error"] = "Wrong credentials. Please, try again!";
-            return View(loginVM);
+                if (pacient == null)
+                {
+                    return BadRequest("Invalid pacient!");
+                    
+                }
+                if (!VerifyPassword(password, pacient.Password))
+                {
+                    return BadRequest("Invalid credentials!");
+                };
+                //return Ok(pacient);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+                return BadRequest("prostule!");
+
         }
 
     }

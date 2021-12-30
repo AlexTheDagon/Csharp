@@ -22,7 +22,8 @@ namespace MedicalAppointments.Controllers
         // GET: Appointments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Appointment.ToListAsync());
+            var medicalAppointmentsContext = _context.Appointment.Include(a => a.Doctor).Include(a => a.Pacient);
+            return View(await medicalAppointmentsContext.ToListAsync());
         }
 
         // GET: Appointments/Details/5
@@ -34,6 +35,8 @@ namespace MedicalAppointments.Controllers
             }
 
             var appointment = await _context.Appointment
+                .Include(a => a.Doctor)
+                .Include(a => a.Pacient)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (appointment == null)
             {
@@ -46,6 +49,8 @@ namespace MedicalAppointments.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
+            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id");
+            ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace MedicalAppointments.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateAndTime,Type,Observations")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("Id,DoctorID,PacientID,DateAndTime,Type,Observations")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace MedicalAppointments.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id", appointment.DoctorID);
+            ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
             return View(appointment);
         }
 
@@ -78,6 +85,8 @@ namespace MedicalAppointments.Controllers
             {
                 return NotFound();
             }
+            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id", appointment.DoctorID);
+            ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
             return View(appointment);
         }
 
@@ -86,7 +95,7 @@ namespace MedicalAppointments.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DateAndTime,Type,Observations")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DoctorID,PacientID,DateAndTime,Type,Observations")] Appointment appointment)
         {
             if (id != appointment.Id)
             {
@@ -113,6 +122,8 @@ namespace MedicalAppointments.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id", appointment.DoctorID);
+            ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
             return View(appointment);
         }
 
@@ -125,6 +136,8 @@ namespace MedicalAppointments.Controllers
             }
 
             var appointment = await _context.Appointment
+                .Include(a => a.Doctor)
+                .Include(a => a.Pacient)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (appointment == null)
             {
