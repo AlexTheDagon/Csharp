@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\Csharp\\MedicalAppointments\\MedicalAppointments.csproj": {}
+    "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\MedicalAppointments.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\Csharp\\MedicalAppointments\\MedicalAppointments.csproj": {
+    "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\MedicalAppointments.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\Csharp\\MedicalAppointments\\MedicalAppointments.csproj",
+        "projectUniqueName": "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\MedicalAppointments.csproj",
         "projectName": "MedicalAppointments",
-        "projectPath": "D:\\GitHub\\Csharp\\MedicalAppointments\\MedicalAppointments.csproj",
-        "packagesPath": "C:\\Users\\Bogdan Tudor\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\Csharp\\MedicalAppointments\\obj\\",
+        "projectPath": "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\MedicalAppointments.csproj",
+        "packagesPath": "C:\\Users\\marya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bogdan Tudor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
