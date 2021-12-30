@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MedicalAppointments.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctor Page";
+}
+
+<div class="border-top border-bottom text-muted  text-center">
+    <h1 class="display-4">Doctors</h1>
+</div>
+
+<div class="text-right">
+
+    <form class="text-right form-inline my-2 my-lg-0" asp-controller="Doctors" asp-action="Filter" style="padding-right: 25px;">
+        <input name="searchString" type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+    </form>
+</div>
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
