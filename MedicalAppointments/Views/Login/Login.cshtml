@@ -14,7 +14,7 @@
     <p>as </p>
 </div>
 <div class="text-muted text-left">
-    <form action="" method="post" name="registration" class="register">
+    <form method="post" name="registration" class="register" asp-controller="Login" asp-action="LoginUser">
         <table>
             <tr>
                 <td align="left" for="email"> Email </td>
@@ -22,18 +22,21 @@
             </tr>
             <tr>
                 <td align="left" for="password"> Password </td>
-                <td align="left"><input name="passord" /></td>
+                <td align="left"><input name="password" /></td>
             </tr>
+
         </table>
+
+        <button name="loginButton" style="border: 3px solid #009999" class="btn btn-default" type="submit">
+            Login
+        </button>
     </form>
 </div>
 <div style="color:white">
     <p>as </p>
 </div>
 <div class="text-left">
-    <button name="loginButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="Login">
-        Login
-    </button>
+   
 </div>
 <div style="color:white">
     <p>as </p>

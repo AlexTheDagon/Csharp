@@ -4,14 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h3 class="text-center text-muted">All appointments</h3>
+<h1>Index</h1>
 
-@*<p>
+<p>
     <a asp-action="Create">Create New</a>
-</p>*@
+</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pacient)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.DateAndTime)
             </th>
@@ -28,6 +34,12 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Doctor.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pacient.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DateAndTime)
             </td>
             <td>
@@ -37,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Observations)
             </td>
             <td>
-                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit</a> |
-                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Details</a> |
-                <a style="border: 3px solid #009999" class="btn btn-light" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

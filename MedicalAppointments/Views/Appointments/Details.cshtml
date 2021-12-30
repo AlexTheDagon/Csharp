@@ -4,44 +4,45 @@
     ViewData["Title"] = "Details";
 }
 
-<h3 class="text-muted text-center">Details</h3>
+<h1>Details</h1>
 
 <div>
+    <h4>Appointment</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DateAndTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DateAndTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Observations)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Observations)
-        </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Doctor)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Doctor)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doctor.Id)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pacient)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pacient.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateAndTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateAndTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Observations)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observations)
         </dd>
     </dl>
 </div>
 <div>
-    <a style="color: #004d4d" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a style="color: #004d4d" asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>

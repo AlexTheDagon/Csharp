@@ -301,11 +301,6 @@ C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\scopedcss
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.TagHelpers.input.cache
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.TagHelpers.output.cache
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.RazorCoreGenerate.cache
-C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Create.cshtml.g.cs
-C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Delete.cshtml.g.cs
-C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Details.cshtml.g.cs
-C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Edit.cshtml.g.cs
-C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Create.cshtml.g.cs
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Delete.cshtml.g.cs
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Details.cshtml.g.cs
@@ -332,3 +327,9 @@ C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAp
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.pdb
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\MedicalAppointments.genruntimeconfig.cache
 C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Doctors\Doctors.cshtml.g.cs
+C:\Users\marya\Desktop\SE2\MedicalAppointments\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
+C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Create.cshtml.g.cs
+C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Delete.cshtml.g.cs
+C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Details.cshtml.g.cs
+C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Edit.cshtml.g.cs
+C:\Users\marya\Desktop\SE2\MedicalAppointments\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs

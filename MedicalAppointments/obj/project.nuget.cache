@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GAcJqRDVauocWkzUG3Jh9QlbsyWQ8tPCP2f1vK7g5CioSBlqBKkDP3rw4xjCmZDsJPN8isnfLdVO6oh46R6RPw==",
+  "dgSpecHash": "sfoZ/06yL9JTFk/vigdfjpq87+sx78US72zguh2WbE56svvneb56HqHsS4PhmP/rrANahSPQlIwJUXbKvAQskw==",
   "success": true,
   "projectFilePath": "C:\\Users\\marya\\Desktop\\SE2\\MedicalAppointments\\MedicalAppointments.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marya\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\marya\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\marya\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\marya\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
