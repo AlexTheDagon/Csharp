@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace MedicalAppointments.Models
 {
-    public class Pacient
+    public class Pacient : IdentityUser
     {
         public int Id { get; set; }
         public string Mail { get; set; }

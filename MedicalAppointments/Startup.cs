@@ -1,16 +1,20 @@
+using MedicalAppointments.Data;
+using MedicalAppointments.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MedicalAppointments.Data;
-
 namespace MedicalAppointments
 {
     public class Startup
@@ -25,10 +29,44 @@ namespace MedicalAppointments
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            
 
             services.AddDbContext<MedicalAppointmentsContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MedicalAppointmentsContext")));
+
+            services.AddScoped<RoleManager<Pacient>, RoleManager<Pacient>>();
+
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            //services.TryAddScoped<SignInManager<Pacient>>();
+
+
+            //Authentication and authorization
+            //services.AddIdentity<Pacient, IdentityRole>().AddUserStore<MedicalAppointmentsContext>();
+            //services.AddMemoryCache();
+            //services.AddSession();
+
+
+
+            /* services.AddIdentity<IdentityUser, IdentityRole>(options =>
+             {
+                 options.User.RequireUniqueEmail = false;
+             })
+         .AddUserStore<MedicalAppointmentsContext>()
+         .AddDefaultTokenProviders();*/
+
+            //services.AddScoped<UserManager<Pacient>, UserManager<Pacient>>();
+
+            //services.AddMvc();
+
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+
+            services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +87,16 @@ namespace MedicalAppointments
 
             app.UseRouting();
 
+
+
+            app.UseSession();
+
+            //Authentication & Authorization
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -57,6 +105,13 @@ namespace MedicalAppointments
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Seed database
+            AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
         }
+
+
+      
     }
 }
