@@ -24,6 +24,10 @@ namespace MedicalAppointments.Controllers
         {
             return View(await _context.Doctor.ToListAsync());
         }
+        public async Task<IActionResult> Doctors()
+        {
+            return View(await _context.Doctor.ToListAsync());
+        }
 
         // GET: Doctors/Details/5
         public async Task<IActionResult> Details(int? id)

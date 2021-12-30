@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MedicalAppointments.Models.Doctor>
+
+    @{
+        ViewData["Title"] = "Doctor Page";
+    }
+
+    <div class="border-top border-bottom text-muted  text-center">
+        <h1 class="display-4">Doctors</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
