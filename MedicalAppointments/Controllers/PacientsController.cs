@@ -63,7 +63,7 @@ namespace MedicalAppointments.Controllers
                 pacient.Password = BC.HashPassword(pacient.Password);
                 _context.Add(pacient);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("PageLogin", "Login");
+                return RedirectToAction("Index", "Home");
             }
             return View(pacient);
         }

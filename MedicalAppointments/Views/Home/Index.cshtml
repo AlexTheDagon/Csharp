@@ -29,7 +29,7 @@
         }
         else
         {
-            @if (MedicalAppointments.Data.Static.Helper.role == 1 || MedicalAppointments.Data.Static.Helper.role == 3)
+            @if (MedicalAppointments.Data.Static.Helper.role == 3)
             {
                 <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("InvalidOperation", "Login")'">
                     Create appointment
