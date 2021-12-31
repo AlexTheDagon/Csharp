@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MedicalAppointments.Models
 {
-    public class Pacient : IdentityUser
+    public class Pacient
     {
         public int Id { get; set; }
         public string Mail { get; set; }

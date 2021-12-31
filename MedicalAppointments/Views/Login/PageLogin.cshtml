@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Login Page";
 }
-@if (!User.Identity.IsAuthenticated)
+@if (MedicalAppointments.Data.Static.Helper.role == 0)
 {
 <div class="col-md-6 offset-3 alert alert-danger text-center">
     <h7>Please login into your account in order to make an appointment</h7>

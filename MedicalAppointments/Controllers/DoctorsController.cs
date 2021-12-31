@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MedicalAppointments.Data;
 using MedicalAppointments.Models;
 
+using BC = BCrypt.Net.BCrypt;
 namespace MedicalAppointments.Controllers
 {
     public class DoctorsController : Controller
@@ -62,6 +63,7 @@ namespace MedicalAppointments.Controllers
         {
             if (ModelState.IsValid)
             {
+                doctor.Password = BC.HashPassword(doctor.Password);
                 _context.Add(doctor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
