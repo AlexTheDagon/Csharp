@@ -17,19 +17,5 @@ namespace MedicalAppointments.Data.Static
         //2-> pacient
         //3-> doctor
         public static int role = 0;
-
-        //public Helper()
-        //{
-        //    LoginAdmin = false;
-        //    LoginPacient = false;
-        //    LoginDoctor = false;
-        //    Role = 0;
-        //}
-        //public bool LoginPacient { get; set; }
-        //public bool LoginDoctor { get; set; }
-        //public bool LoginAdmin { get; set; }
-        //public int Role { get; set; }
-     
-
     }
 }

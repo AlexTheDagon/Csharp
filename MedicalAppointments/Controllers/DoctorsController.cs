@@ -94,6 +94,7 @@ namespace MedicalAppointments.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Mail,Password,Name,Phone,Age,Type,Rating")] Doctor doctor)
         {
+
             if (id != doctor.Id)
             {
                 return NotFound();
@@ -103,6 +104,7 @@ namespace MedicalAppointments.Controllers
             {
                 try
                 {
+                    doctor.Password = BC.HashPassword(doctor.Password);
                     _context.Update(doctor);
                     await _context.SaveChangesAsync();
                 }
@@ -117,7 +119,7 @@ namespace MedicalAppointments.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(doctor);
         }

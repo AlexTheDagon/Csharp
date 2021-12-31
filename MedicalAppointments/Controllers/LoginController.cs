@@ -8,23 +8,51 @@ using MedicalAppointments.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using MedicalAppointments.Data.Static;
+using MedicalAppointments.Models;
 
 namespace MedicalAppointments.Controllers
 {
     public class LoginController : Controller
     {
         private readonly MedicalAppointmentsContext _context;
-
+        private static Doctor _doctor;
+        private static Pacient _pacient;
 
         public LoginController(MedicalAppointmentsContext context)
         {
             _context = context;
 
         }
-
+       
         public IActionResult PageLogin() => View();
-        public IActionResult PacientPage() => View();
-        public IActionResult DoctorPage() => View();
+        public IActionResult InvalidOperation() => View();
+
+        public IActionResult GoBack()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> PacientPage()
+        {
+            var users = await _context.Pacient.ToListAsync();
+            var pacient = users.FirstOrDefault(user => user.Id == _pacient.Id);
+            if (pacient == null)
+            {
+                return BadRequest("Something went wrong with pacients");
+
+            }
+            return View(pacient);
+        }
+        public async Task<IActionResult> DoctorPage()
+        {
+            var users = await _context.Doctor.ToListAsync();
+            var doctor = users.FirstOrDefault(user => user.Id == _doctor.Id);
+            if (doctor == null)
+            {
+                return BadRequest("Something went wrong");
+
+            }
+            return View(doctor);
+        }
         public IActionResult AdminPage() => View();
 
 
@@ -67,6 +95,7 @@ namespace MedicalAppointments.Controllers
                         }
                         Helper.role = 3;
                         Helper.loginDoctor = true;
+                        _doctor = doc;
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -91,6 +120,7 @@ namespace MedicalAppointments.Controllers
                         }
                         Helper.role = 2;
                         Helper.loginPacient = true;
+                        _pacient = pacient;
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -99,16 +129,24 @@ namespace MedicalAppointments.Controllers
             }
         }
 
-     
-        public async Task<IActionResult> LogoutAdmin()
+
+        public IActionResult LogoutAdmin()
         {
             //var users = await _context.Pacient.ToListAsync();
             Helper.loginAdmin = false;
             Helper.role = 0;
             return RedirectToAction("Index", "Home");
         }
+    
 
-        public async Task<IActionResult> LogoutDoctor()
+        public IActionResult LogoutDoctor()
+        {
+            //var users = await _context.Pacient.ToListAsync();
+            Helper.loginDoctor = false;
+            Helper.role = 0;
+            return RedirectToAction("Index", "Home");
+        }
+        public IActionResult LogoutPacient()
         {
             //var users = await _context.Pacient.ToListAsync();
             Helper.loginDoctor = false;

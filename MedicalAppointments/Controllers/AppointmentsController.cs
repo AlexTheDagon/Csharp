@@ -162,5 +162,39 @@ namespace MedicalAppointments.Controllers
         {
             return _context.Appointment.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> AppointmentsDoctor(int id)
+        {
+            var medicalAppointmentsContext = _context.Appointment.Include(a => a.Doctor).Where(a => a.DoctorID == id).Include(a => a.Pacient);
+            if (medicalAppointmentsContext != null)
+            {
+                return View(await medicalAppointmentsContext.ToListAsync());
+            }
+            else
+            {
+                return BadRequest("No appointments available");
+            }
+        }
+        public IActionResult GoBack()
+        {
+            return RedirectToAction("DoctorPage", "Login");
+        }
+
+        public async Task<IActionResult> AppointmentsPacient(int id)
+        {
+            var medicalAppointmentsContext = _context.Appointment.Include(a => a.Doctor).Where(a => a.PacientID == id).Include(a => a.Pacient);
+            if (medicalAppointmentsContext != null)
+            {
+                return View(await medicalAppointmentsContext.ToListAsync());
+            }
+            else
+            {
+                return BadRequest("No appointments available for now");
+            }
+        }
+        public IActionResult GoBackPacient()
+        {
+            return RedirectToAction("PacientPage", "Login");
+        }
     }
 }

@@ -13,7 +13,7 @@
     <p></p>
 </div>
 <div class="text-center">
-    @if (MedicalAppointments.Data.Static.Helper.loginPacient == true)
+    @if (MedicalAppointments.Data.Static.Helper.role == 2) //user
     {
         <button name="makeAppointmentButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Create", "Appointments")'">
             Create appointment
@@ -21,9 +21,22 @@
     }
     else
     {
-        <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("PageLogin", "Login")'">
-            Create appointment
-        </button>
+        @if (MedicalAppointments.Data.Static.Helper.role == 0) //not logged in
+        {
+            <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("PageLogin", "Login")'">
+                Create appointment
+            </button>
+        }
+        else
+        {
+            @if (MedicalAppointments.Data.Static.Helper.role == 1 || MedicalAppointments.Data.Static.Helper.role == 3)
+            {
+                <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("InvalidOperation", "Login")'">
+                    Create appointment
+                </button>
+
+            }
+        }
     }
 
     <button name="seeDcotorsButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Doctors", "Doctors")'">
