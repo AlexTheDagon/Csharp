@@ -16,12 +16,6 @@
             @Html.DisplayFor(model => model.Mail)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
@@ -49,5 +43,8 @@
 </div>
 <div>
     <a style="color: #004d4d" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    @if (MedicalAppointments.Data.Static.Helper.role == 1)
+    {
     <a style="color: #004d4d" asp-action="Index">Back to List</a>
+    }
 </div>

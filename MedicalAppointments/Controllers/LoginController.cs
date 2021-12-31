@@ -23,6 +23,9 @@ namespace MedicalAppointments.Controllers
         }
 
         public IActionResult PageLogin() => View();
+        public IActionResult PacientPage() => View();
+        public IActionResult DoctorPage() => View();
+        public IActionResult AdminPage() => View();
 
 
         public string HashPassword(string password)
@@ -45,7 +48,7 @@ namespace MedicalAppointments.Controllers
             }
             else
             {
-                if (email.Contains("doctor.com"))
+                if (email.Contains("@doctor.com"))
                 {
                     var doctors = await _context.Doctor.ToListAsync();
 
@@ -67,7 +70,7 @@ namespace MedicalAppointments.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                     else
-                        return BadRequest("prostule!");
+                        return BadRequest("prostule doctor!");
                 }
                 else
                 {
@@ -96,12 +99,21 @@ namespace MedicalAppointments.Controllers
             }
         }
 
-        public void LogoutUser()
+     
+        public async Task<IActionResult> LogoutAdmin()
         {
-            Helper.loginPacient = false;
-            Helper.loginDoctor = false;
+            //var users = await _context.Pacient.ToListAsync();
             Helper.loginAdmin = false;
             Helper.role = 0;
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> LogoutDoctor()
+        {
+            //var users = await _context.Pacient.ToListAsync();
+            Helper.loginDoctor = false;
+            Helper.role = 0;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

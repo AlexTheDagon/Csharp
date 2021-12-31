@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MedicalAppointments.Data;
+using MedicalAppointments.Data.Static;
 
 namespace MedicalAppointments
 {
