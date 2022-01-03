@@ -68,23 +68,32 @@ namespace MedicalAppointments.Controllers
             string selectedValue = Request.Form["DoctorId"].ToString();
             var doctor = _context.Doctor.FirstOrDefault(d => Equals(d.Id.ToString(), selectedValue));
             appointment.DoctorID = doctor.Id;
+            var app = _context.Appointment.ToList(); //take all appointments
+            var a = app.Where(ap => (ap.DoctorID == doctor.Id)).ToList(); //filter appointemnt for current doctor
+            var exists = a.Where(currentIndex => currentIndex.DateAndTime == appointment.DateAndTime).ToList();
+            if (exists.Count > 0)
+            {
+               return BadRequest("Doctor already has an appointment at that time.Try again!");
+            }
+            else
+            {
+                if (Helper.role == 2)
+                {
+                    appointment.PacientID = Helper.idPacient;
+                }
 
-            if (Helper.role == 2)
-            {
-                appointment.PacientID = Helper.idPacient;
+                if (ModelState.IsValid)
+                {
+                    _context.Add(appointment);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+                var query = _context.Doctor.ToList();
+                ViewBag.list = new SelectList(query.AsEnumerable(), "Id", "Name", "----select----");
+
+                ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
+                return View(appointment);
             }
-           
-            if (ModelState.IsValid)
-            {
-                _context.Add(appointment);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
-            }
-            var query = _context.Doctor.ToList();
-            ViewBag.list = new SelectList(query.AsEnumerable(), "Id", "Name", "----select----");
-         
-            ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
-            return View(appointment);
         }
 
         // GET: Appointments/Edit/5
