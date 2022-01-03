@@ -17,5 +17,6 @@ namespace MedicalAppointments.Data.Static
         //2-> pacient
         //3-> doctor
         public static int role = 0;
+        public static int idPacient;
     }
 }

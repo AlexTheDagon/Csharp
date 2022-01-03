@@ -120,6 +120,7 @@ namespace MedicalAppointments.Controllers
                         }
                         Helper.role = 2;
                         Helper.loginPacient = true;
+                        Helper.idPacient = pacient.Id;
                         _pacient = pacient;
                         return RedirectToAction("Index", "Home");
                     }

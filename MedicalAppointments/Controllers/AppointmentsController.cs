@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MedicalAppointments.Data;
 using MedicalAppointments.Models;
+using MedicalAppointments.Data.Static;
 
 namespace MedicalAppointments.Controllers
 {
@@ -49,7 +50,10 @@ namespace MedicalAppointments.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
-            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id");
+            var query = _context.Doctor.ToList();
+            ViewBag.list = new SelectList(query.AsEnumerable(), "Id", "Name", "----select----");
+
+            // ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id");
             ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id");
             return View();
         }
@@ -61,13 +65,24 @@ namespace MedicalAppointments.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DoctorID,PacientID,DateAndTime,Type,Observations")] Appointment appointment)
         {
+            string selectedValue = Request.Form["DoctorId"].ToString();
+            var doctor = _context.Doctor.FirstOrDefault(d => Equals(d.Id.ToString(), selectedValue));
+            appointment.DoctorID = doctor.Id;
+
+            if (Helper.role == 2)
+            {
+                appointment.PacientID = Helper.idPacient;
+            }
+           
             if (ModelState.IsValid)
             {
                 _context.Add(appointment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
-            ViewData["DoctorID"] = new SelectList(_context.Doctor, "Id", "Id", appointment.DoctorID);
+            var query = _context.Doctor.ToList();
+            ViewBag.list = new SelectList(query.AsEnumerable(), "Id", "Name", "----select----");
+         
             ViewData["PacientID"] = new SelectList(_context.Pacient, "Id", "Id", appointment.PacientID);
             return View(appointment);
         }
