@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="border-top border-bottom text-muted  text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Do you find it hard to make an appointment to the doctor's because of your busy schedule? </p>
+    <p>We have the perfect solution!</p>
+    <p>Here is the perfect site to make your life easier.</p>
+    <p>We hope you will enjoy it as much as we do.</p>
+</div>
+<div class="text-center">
+    <p></p>
+</div>
+<div class="text-center">
+    @if (MedicalAppointments.Data.Static.Helper.role == 2) //user
+    {
+        <button name="makeAppointmentButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Create", "Appointments")'">
+            Create appointment
+        </button>
+    }
+    else
+    {
+        @if (MedicalAppointments.Data.Static.Helper.role == 0) //not logged in
+        {
+            <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("PageLogin", "Login")'">
+                Create appointment
+            </button>
+        }
+        else
+        {
+            @if (MedicalAppointments.Data.Static.Helper.role == 3)
+            {
+                <button name="makeAppointmentButtonNoLogin" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("InvalidOperation", "Login")'">
+                    Create appointment
+                </button>
+
+            }
+        }
+    }
+
+    <button name="seeDcotorsButton" style="border: 3px solid #009999" class="btn btn-default" type="submit" onclick="window.location.href ='@Url.Action("Doctors", "Doctors")'">
+        See doctors
+    </button>
+</div>
+<br/>
+<br/>
+<br />
+
+@if (MedicalAppointments.Data.Static.Helper.role != 0)
+{
+    <div class="col-md-6 offset-3 alert alert-success text-center">
+        <h7>You have succesfully logged into your account</h7>
+    </div>
+}

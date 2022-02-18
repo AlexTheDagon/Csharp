@@ -1,0 +1,6 @@
+Project was developed by:
+Bucur Alexandra Ioana
+Bogdan Tudor-Alexandru
+Bogdan Maria
+
+During the 3rd year of university for the Software Development Course.
